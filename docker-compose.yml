@@ -12,10 +12,9 @@ services:
       - celery
 
   celery:
-    build: .
-    command: celery -A Finksta worker --loglevel=info
-    env_file:
-      - /etc/secrets/.env
+    build:
+      context: .
+      dockerfile: Dockerfile.celery
     depends_on:
       - redis
 
